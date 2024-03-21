@@ -4,12 +4,14 @@
   "description": "Repositorio criado para o armazenamento de trabalho academico para o IFSC de Tubarão SC, consistindo no desenvolvimento de uma API (ifsc_knowledge_korner) para armazenamento, consulta e alterações de trabalhos acadêmicos desenvolvidos da instituição.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js" 
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.0",
+    "migrate-mongo": "^11.0.0",
     "mongoose": "^8.2.2"
   }
 }

@@ -7,7 +7,9 @@
     # Copie os arquivos do aplicativo para o contêiner
     COPY ./src ./src
     COPY ./package*.json ./
+    COPY .env /usr/src/app/.env
     COPY ./app.js ./
+   
     # Instale as dependências do projeto
     RUN npm install
 
