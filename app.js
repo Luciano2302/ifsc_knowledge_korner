@@ -1,7 +1,11 @@
 const express = require('express');
 const routes = require('./src/routes');
-
 const app = express();
-routes(app);
 
-module.exports = app;
+app.use(express.json());
+app.use(routes);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor escutando na porta ${PORT}`);
+});

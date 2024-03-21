@@ -1,9 +1,11 @@
 const express = require('express');
 const trabalhosAcademicos = require('./trabalhosAcademicosRoutes.js');
 
-module.exports = app => {
-  app.use(
-    express.json(),
-    trabalhosAcademicos
-   );
-};
+const app = express();
+
+app.use(
+  express.json(),
+  trabalhosAcademicos
+);
+
+module.exports = app;
