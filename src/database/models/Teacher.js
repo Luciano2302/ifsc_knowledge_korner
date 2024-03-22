@@ -1,14 +1,23 @@
 const mongoose = require('mongoose');
-const User = require('./User');
+const User = require('/user.js');
 
-function Teacher() {
-    const teacher = Object.create(User.prototype);
-    teacher.registration = {
+const teacherSchema = new mongoose.Schema({
+    registration: {
         type: Number,
-        required: [true, "A matricula do(a) professor(a) é obrigatório"],
+        required: [true, "A matrícula do(a) professor(a) é obrigatória"],
         unique: true
-    };
-    return teacher;
-}
+    },
+    titration: {
+        type: String,
+        required: [true, "A titulação do(a) professor(a) é obrigatória"]
+    },
+    institution: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Institution',
+        required: [true, "A instituição do(a) professor(a) é obrigatória"]
+    }
+});
+
+const Teacher = User.discriminator('Teacher', teacherSchema);
 
 module.exports = Teacher;
